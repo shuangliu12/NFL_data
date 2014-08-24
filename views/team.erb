@@ -1,0 +1,51 @@
+<!Doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%=@team%></title>
+    <link rel="stylesheet" href="/team.css">
+  </head>
+  <body>
+    <div class="title">
+      <h3><%=@team%></h3>
+    </div>
+
+    <div class="summary">
+
+      <table class="win_loss">
+      <td> Wins: <%= @team_win%> games.</td>
+      <td> Losses: <%= @team_loss%> games.</td>
+      </tr>
+      </table>
+    </div>
+
+    <div class ='overview'>
+      <h4>Stats Overview</h4>
+    </div>
+
+    <table class = "stats">
+    <tr>
+        <th>Home Team</th>
+        <th>Away Team</th>
+        <th>Home Score</th>
+        <th>Away Score</th>
+    </tr>
+
+     <%@all_games.each do |game|
+      if game.values.include?(@team)%>
+      <tr>
+        <td><%= game['home_team']%></td>
+        <td><%= game['away_team']%></td>
+        <td><%= game['home_score']%></td>
+        <td><%= game['away_score']%></td>
+      <%end%>
+     <%end%>
+    </tr>
+
+
+    </table>
+
+
+    <p><a href="/leaderboard"> &#8592 Back to the leaderboard</a></p>
+  </body>
+</html>

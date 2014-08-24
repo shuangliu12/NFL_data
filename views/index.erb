@@ -1,0 +1,49 @@
+<!Doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Leaderboard of NFL</title>
+    <link rel="stylesheet" href="/stylesheet.css">
+  </head>
+
+  <body>
+      <div class='title'>
+          <h2><img src="/header_shield.png"> NFL Leaderboard</h2>
+      </div>
+
+    <div class='table'>
+      <table>
+        <!-- <thead>NFL Leaderboard</thead> -->
+        <tr>
+          <th>Rank</th>
+          <th>Team</th>
+          <th>Wins</th>
+          <th>Losses</th>
+        </tr>
+
+        <% count = 0
+        @results.each do |result|%>
+        <tr>
+          <td><%=count+=1%></td>
+          <!-- result =[patriot,win,loss], result[0]=team_name-->
+          <td><a href="/leaderboard/<%=result[0]%>"><%=result[0]%></a></td>
+          <td><%=result[1]%></td>
+          <td><%=result[2]%></td>
+        </tr>
+        <%end%>
+
+      </table>
+    </div>
+
+    <div class='footer'>
+      <ul>
+        <li><a href="#">Contact Us | </a></li>
+        <li><a href="#">Rule Books | </a></li>
+        <li><a href="#">Privacy Policy | </a></li>
+        <li><a href="#">Terms & Conditions | </a></li>
+        <li><a href="#">Public Relations</a></li>
+      </ul>
+    </div>
+
+  </body>
+</html>
